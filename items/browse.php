@@ -27,13 +27,13 @@ echo head(array('title'=>$pageTitle,'bodyid'=>'items','bodyclass' => 'browse'));
                 <div class="carousel-inner">
                     <?php foreach(loop('items') as $item): ?>
                         <div class="item">
-                        <?php if (item_has_thumbnail()): ?>
+                        <?php if(metadata($item, 'has thumbnail')): ?>
                             <div class="carousel-img" style="text-align: center">
                                 <?php echo link_to_item(item_image('thumbnail',$props=array('class'=>'img-polaroid')),null,null,$item); ?>
                             </div>
                         <?php endif; ?>
                             <div class="carousel-caption">
-                                <h4><?php echo link_to_item(item('Dublin Core', 'Title'), array('class'=>'permalink')); ?></h4>
+                                <h4><?php echo link_to_item($itemTitle, array('class'=>'permalink'); ?></h4>
                                 <?php if ($description = item('Dublin Core', 'Description', array('snippet'=>250))): ?>
                                     <p class="item-description">
                                         <?php echo $description; ?>

@@ -69,7 +69,7 @@
                 <li class="span4">
                     <div class="thumbnail" style="padding-left:1em;padding-right:1em;text-align:center;">
                         <h3><?php echo link_to_item(); ?></h3>
-                        <?php if(item_has_thumbnail()): ?>
+                        <?php if(metadata($item, 'has thumbnail'): ?>
                             <div class="item-img">
                                 <?php echo link_to_item(item_thumbnail($props=array('class'=>'img-rounded','style'=>'margin:1em'))); ?>
                             </div>

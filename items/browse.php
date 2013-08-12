@@ -33,8 +33,8 @@ echo head(array('title'=>$pageTitle,'bodyid'=>'items','bodyclass' => 'browse'));
                             </div>
                         <?php endif; ?>
                             <div class="carousel-caption">
-                                <h4><?php echo link_to_item($itemTitle, array('class'=>'permalink'); ?></h4>
-                                <?php if ($description = item('Dublin Core', 'Description', array('snippet'=>250))): ?>
+                                <h4><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h4>
+                                <?php if ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
                                     <p class="item-description">
                                         <?php echo $description; ?>
                                     </p>
@@ -43,9 +43,9 @@ echo head(array('title'=>$pageTitle,'bodyid'=>'items','bodyclass' => 'browse'));
                                         <?php echo $text; ?>
                                     </div>
                                 <?php endif; ?>
-                                <?php if (item_has_tags()): ?>
+                                <?php if (metadata('item', 'has tags')): ?>
                                     <div class="browse-item-tags"><p><strong><?php echo __('Tags'); ?>:</strong>
-                                        <?php echo item_tags_as_string(); ?></p>
+                                        <?php echo tag_string('items'); ?></p>
                                     </div>
                                 <?php endif; ?>
                             </div>
